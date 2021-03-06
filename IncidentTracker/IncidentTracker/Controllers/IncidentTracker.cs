@@ -43,6 +43,7 @@ namespace IncidentTracker.Controllers
 
         // POST api/<IncidentTracker>
         [HttpPost]
+        [Route("InsertUpdate")]
         public IActionResult Post([FromBody] IncidentDataModel indicentDataModel)
         {
             IncidentDataModel result;
