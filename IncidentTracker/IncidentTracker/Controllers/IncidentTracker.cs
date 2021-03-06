@@ -17,9 +17,10 @@ namespace IncidentTracker.Controllers
     {
         public IIncidentBusinessLayer incidentBusinessLayer;
         public IIncidentData incidentData;
-        public IncidentTracker(IIncidentBusinessLayer incidentBusinessLayer)
+        public IncidentTracker(IIncidentBusinessLayer incidentBusinessLayer , IIncidentData incidentData)
         {
             this.incidentBusinessLayer = incidentBusinessLayer;
+            this.incidentData = incidentData;
         }
 
 

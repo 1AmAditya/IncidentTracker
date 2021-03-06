@@ -18,8 +18,24 @@ namespace IncidentTracker.BusinessLayer
 
         public IncidentDataModel IncidentInsertUpdate(IncidentDataModel incidentDataModel)
         {
-
-            return incidentData.CreateAndUpdate(incidentDataModel);
+            if (incidentDataModel.IncidentID == 0)
+            {
+                incidentDataModel.CreatedAt = DateTime.Now;
+                incidentDataModel.Severity = null;
+                incidentDataModel.Status = null;
+                incidentDataModel.UpdatedAt = null;
+                incidentData.CreateAndUpdate(incidentDataModel);
+            }
+            else
+            {
+                var itemToRemove = incidentData.GetIncidentDatas.Single(r => r.IncidentID == incidentDataModel.IncidentID);
+                incidentDataModel.UpdatedAt = DateTime.Now;
+                incidentDataModel.CreatedAt = itemToRemove.CreatedAt;
+                incidentDataModel.Severity = incidentDataModel.Severity;
+                incidentDataModel.Status = incidentDataModel.Status;
+                incidentData.CreateAndUpdate(incidentDataModel);
+            }
+            return null;
         }
 
         public IncidentDataModel IncidentStatusUpdate(int Id , StatusEnum statusEnum)
@@ -32,6 +48,7 @@ namespace IncidentTracker.BusinessLayer
             else
             {
                 item.Status = statusEnum;
+                item.UpdatedAt = DateTime.Now;
             }
             return incidentData.CreateAndUpdate(item);
         }
@@ -45,9 +62,10 @@ namespace IncidentTracker.BusinessLayer
             }
             else
             {
+                item.UpdatedAt = DateTime.Now;
                 item.Severity = severityEnum;
+                return incidentData.CreateAndUpdate(item);
             }
-            return incidentData.CreateAndUpdate(item);
         }
 
         public bool IncidentDelete(int Id)

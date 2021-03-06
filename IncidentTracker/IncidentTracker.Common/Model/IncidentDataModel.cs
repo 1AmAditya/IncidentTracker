@@ -14,9 +14,9 @@ namespace IncidentTracker.Common.Model
         [Required]
         [StringLength(200)]
         public string Description { get; set; }
-        public SeverityEnum Severity { get; set; }
-        public string CreatedAt { get; set; }
-        public string UpdatedAt { get; set; }
-        public StatusEnum Status { get; set; }
+        public SeverityEnum? Severity { get; set; }
+        public DateTime? CreatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
+        public StatusEnum? Status { get; set; }
     }
 }
