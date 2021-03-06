@@ -27,35 +27,48 @@ namespace IncidentTracker.RepositoryLayer
 
         public IncidentDataModel CreateAndUpdate(IncidentDataModel incidentData)
         {
-
-            if(incidentData.IncidentID == 0)
+            try
             {
-                counter++;
-                incidentData.IncidentID = counter;
-                incidentDatas.Add(incidentData);
-                return incidentData;
+                if (incidentData.IncidentID == 0)
+                {
+                    counter++;
+                    incidentData.IncidentID = counter;
+                    incidentDatas.Add(incidentData);
+                    return incidentData;
+                }
+                else
+                {
+                    var itemToRemove = incidentDatas.Single(r => r.IncidentID == incidentData.IncidentID);
+                    incidentDatas.Remove(itemToRemove);
+                    incidentDatas.Add(incidentData);
+                    return incidentData;
+                }
             }
-            else 
+            catch(Exception ex)
             {
-                var itemToRemove = incidentDatas.Single(r => r.IncidentID == incidentData.IncidentID);
-                incidentDatas.Remove(itemToRemove);
-                incidentDatas.Add(incidentData);
-                return incidentData;
+                return null;
             }
         }
 
         public bool Delete(int id)
         {
-
-            var itemToRemove = incidentDatas.Single(r => r.IncidentID == id);
-
-            if(itemToRemove != null)
+            try
             {
-                incidentDatas.Remove(itemToRemove);
-                return true;
+                var itemToRemove = incidentDatas.Single(r => r.IncidentID == id);
+
+                if (itemToRemove != null)
+                {
+                    incidentDatas.Remove(itemToRemove);
+                    return true;
+                }
+
+                return false;
             }
-            
-            return false;
+            catch(Exception ex)
+            {
+                return false;
+            }
+           
         }
     }
 }
