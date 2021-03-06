@@ -9,6 +9,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\IncidentTracker.BusinessLayer\IncidentTracker.BusinessLayer.csproj" />
     <ProjectReference Include="..\IncidentTracker.Common\IncidentTracker.Common.csproj" />
     <ProjectReference Include="..\IncidentTracker.RepositoryLayer\IncidentTracker.RepositoryLayer.csproj" />

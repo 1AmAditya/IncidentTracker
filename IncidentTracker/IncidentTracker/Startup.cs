@@ -29,6 +29,7 @@ namespace IncidentTracker
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddSwaggerGen();
             services.AddSingleton(typeof(IIncidentData), typeof(IncidentData));
             services.AddTransient(typeof(IIncidentBusinessLayer), typeof(IncidentBusinessLayer));
         }
@@ -41,8 +42,12 @@ namespace IncidentTracker
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
+            //app.UseHttpsRedirection();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             app.UseRouting();
 
             app.UseAuthorization();
