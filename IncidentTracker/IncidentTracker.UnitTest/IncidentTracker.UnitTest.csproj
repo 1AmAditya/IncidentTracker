@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\IncidentTracker.BusinessLayer\IncidentTracker.BusinessLayer.csproj" />
     <ProjectReference Include="..\IncidentTracker.Common\IncidentTracker.Common.csproj" />
     <ProjectReference Include="..\IncidentTracker.RepositoryLayer\IncidentTracker.RepositoryLayer.csproj" />
   </ItemGroup>

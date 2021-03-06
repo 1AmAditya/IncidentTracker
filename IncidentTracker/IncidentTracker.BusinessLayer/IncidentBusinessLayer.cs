@@ -24,7 +24,7 @@ namespace IncidentTracker.BusinessLayer
                 incidentDataModel.Severity = null;
                 incidentDataModel.Status = null;
                 incidentDataModel.UpdatedAt = null;
-                incidentData.CreateAndUpdate(incidentDataModel);
+                return incidentData.CreateAndUpdate(incidentDataModel);
             }
             else
             {
@@ -33,7 +33,7 @@ namespace IncidentTracker.BusinessLayer
                 incidentDataModel.CreatedAt = itemToRemove.CreatedAt;
                 incidentDataModel.Severity = incidentDataModel.Severity;
                 incidentDataModel.Status = incidentDataModel.Status;
-                incidentData.CreateAndUpdate(incidentDataModel);
+                return incidentData.CreateAndUpdate(incidentDataModel);
             }
             return null;
         }
