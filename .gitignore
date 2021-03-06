@@ -3,3 +3,10 @@
 ################################################################################
 
 /IncidentTracker/IncidentTracker/bin/Debug/netcoreapp3.1
+/IncidentTracker/.vs/IncidentTracker
+/IncidentTracker/IncidentTracker/obj
+/IncidentTracker/IncidentTracker.BusinessLayer/obj
+/IncidentTracker/IncidentTracker.BusinessLayer/bin/Debug/netcoreapp3.1
+/IncidentTracker/IncidentTracker.Common/obj/Debug/netcoreapp3.1
+/IncidentTracker/IncidentTracker.RepositoryLayer/obj
+/IncidentTracker/IncidentTracker.RepositoryLayer/bin/Debug/netcoreapp3.1

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IncidentTracker.BusinessLayer\IncidentTracker.BusinessLayer.csproj" />
+    <ProjectReference Include="..\IncidentTracker.Common\IncidentTracker.Common.csproj" />
+    <ProjectReference Include="..\IncidentTracker.RepositoryLayer\IncidentTracker.RepositoryLayer.csproj" />
+  </ItemGroup>
+
+
+</Project>
