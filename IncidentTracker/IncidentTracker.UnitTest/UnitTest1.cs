@@ -18,7 +18,9 @@ namespace IncidentTracker.UnitTest
             Assert.IsNotNull(item);
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
         [TestMethod]
         public void Get()
         {
